@@ -2,7 +2,9 @@
   <div id="app">
     <img src="./assets/logo.png">
     <p>
-      <router-link :to="{ name:'login'}">go to login</router-link>
+      <button><router-link :to="{ name:'home'}" active-class="molly-active-class" exact>Home</router-link></button>
+      <button><router-link :to="{ name:'login'}">go to login</router-link></button>
+      <button><router-link :to="{ name:'stories.all'}">Stories</router-link></button>
     </p>
     <transition enter-active-class="animated rollIn">
       <router-view></router-view>

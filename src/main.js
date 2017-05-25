@@ -3,8 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
+import Home from './components/Hello.vue'
 import Login from './components/Login.vue'
 import Register from './components/Register.vue'
+import StoriesPage from './components/StoriesPage.vue'
 import Stories from './components/Stories.vue'
 import Famous from './components/Famous.vue'
 
@@ -18,12 +20,17 @@ const routes = [{
         component: Login
     },
     {
+        path: '/',
+        name: 'home',
+        component: Home
+    },
+    {
         path: '/stories',
-        component: Stories,
+        component: StoriesPage,
         children: [{
                 path: '',
                 name: 'stories.all',
-                component: Stroies
+                component: Stories
             },
             {
                 path: 'famous',
@@ -40,6 +47,7 @@ Vue.config.productionTip = false
 const router = new VueRouter({
     mode: 'history',
     base: '/',
+    linkActiveClass: 'molly-active-class',
     routes // （缩写）相当于 routes: routes
 })
 
