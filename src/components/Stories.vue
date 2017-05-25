@@ -1,42 +1,24 @@
 <template>
+  <!--<h3>All Stories ({{stories.length}})</h3>-->
   <ul class="list-group">
     <li v-for="story in stories"  class="list-group-item">
-      {{ story.writer }} said "{{ story.plot }}"
-      Story upvotes {{ story.upvotes }}.
+      <div class="row">
+        <h4>{{ story.writer }} said "{{ story.plot }}"
+          <span>Story upvotes {{ story.upvotes }}.</span>
+        </h4>
+        <router-link :to="{ name: 'stories.edit', params: {id:story.id} }" tag="button" class="btn btn-default" exact>Edit
+        </router-link>
+      </div>
     </li>
   </ul>
 </template>
 
 <script>
+  import {store} from '../store.js'
   export default {
     data () {
       return {
-        stories: [
-          {
-            plot: 'My horse is amazing.',
-            writer: 'Mr. Weebl',
-            upvotes: 28,
-            voted: false
-          },
-          {
-            plot: 'Narwhals invented Shish Kebab.',
-            writer: 'Mr. Weebl',
-            upvotes: 8,
-            voted: false
-          },
-          {
-            plot: 'The dark side of the Force is stronger.',
-            writer: 'Darth Vader',
-            upvotes: 52,
-            voted: false
-          },
-          {
-            plot: 'One does not simply walk into Mordor',
-            writer: 'Boromir',
-            upvotes: 74,
-            voted: false
-          }
-        ]
+        stories: store.stories
       }
     }
   }

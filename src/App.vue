@@ -21,6 +21,7 @@ import Login from './components/Login.vue'
 import Hello from './components/Hello.vue'
 import Register from './components/Register.vue'
 import Stories from './components/Stories.vue'
+import StoriesEdit from './components/StoriesEdit.vue'
 
 export default {
   name: 'app',
@@ -28,7 +29,8 @@ export default {
     Hello,
     Login,
     Register,
-    Stories
+    Stories,
+    StoriesEdit
   }
 }
 </script>

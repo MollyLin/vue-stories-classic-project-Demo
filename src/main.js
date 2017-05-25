@@ -9,6 +9,7 @@ import Register from './components/Register.vue'
 import StoriesPage from './components/StoriesPage.vue'
 import Stories from './components/Stories.vue'
 import Famous from './components/Famous.vue'
+import StoriesEdit from './components/StoriesEdit.vue'
 
 Vue.use(VueRouter)
 
@@ -35,13 +36,20 @@ const routes = [{
             {
                 path: 'famous',
                 name: 'stories.famous',
+                alias: '/famous',
                 component: Famous
+            },
+            {
+                path: ':id/edit',
+                props: (route) => ({ id: Number(route.params.id) }),
+                name: 'stories.edit',
+                component: StoriesEdit
             }
         ]
     }
 ]
 
-Vue.config.productionTip = false
+// Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 const router = new VueRouter({
