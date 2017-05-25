@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
+import Animate from 'animate.css'
 import Home from './components/Hello.vue'
 import Login from './components/Login.vue'
 import Register from './components/Register.vue'
@@ -12,6 +13,7 @@ import Famous from './components/Famous.vue'
 import StoriesEdit from './components/StoriesEdit.vue'
 
 Vue.use(VueRouter)
+Vue.use(Animate)
 
 const Foo = { template: '<div></div>' }
 
@@ -64,4 +66,15 @@ new Vue({
     router,
     template: '<App/>',
     components: { App }
+})
+
+let User = {
+    isAdmin: false
+}
+router.beforeEach((to, from, next) => {
+    if (to.path !== '/login' && !User.isAdmin) {
+        next('/login')
+    } else {
+        next()
+    }
 })
