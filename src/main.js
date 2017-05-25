@@ -61,6 +61,7 @@ const router = new VueRouter({
     routes // （缩写）相当于 routes: routes
 })
 
+// user permission check
 new Vue({
     el: '#app',
     router,
