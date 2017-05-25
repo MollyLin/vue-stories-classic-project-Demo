@@ -6,7 +6,8 @@
         <input class="form-control" v-model="story.plot">
       </div>
       <div class="form-group col-md-12">
-          <button v-on:click="saveChanges(story)" class="btn btn-success">Save Changes</button>
+        <button v-on:click="goBack">返回</button>
+        <button v-on:click="saveChanges(story)" class="btn btn-success">Save Changes</button>
       </div>
     </form>
   </div>
@@ -29,6 +30,9 @@
       saveChanges (story) {
         console.log('save');
         this.$router.push('/stories');
+      },
+      goBack() {
+        this.$router.back()
       }
     },
     mounted () {
